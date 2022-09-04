@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const secrets = process.env||require("../secrets");
+const JWTSECRET = process.env.JWTSECRET || require("../secrets").JWTSECRET;
 const FooduserModel = require("../model/userModel");
 const mailSender = require("../utilities/mailSender")
 // ************************controller functions************************
@@ -32,7 +32,7 @@ async function loginController(req, res) {
                     const token = jwt.sign({
                         data: user["_id"],
                         exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24)
-                    }, secrets.JWTSECRET);
+                    }, JWTSECRET);
                     // put token into cookies
                     res.cookie("JWT", token);
                     // send the token 
@@ -150,12 +150,12 @@ async function forgetPasswordController(req, res) {
 function protectRoute(req, res, next) {
     try {
         const cookies = req.cookies;
-        const JWT = cookies.JWT;
+        const jwt = cookies.JWT;
         if (cookies.JWT) {
             console.log("protect Route Encountered");
             // you are logged In then it will 
             // allow next fn to run
-            let token = jwt.verify(JWT, secrets.JWTSECRET);
+            let token = jwt.verify(jwt, JWTSECRET);
             console.log("Jwt decrypted", token);
             let userId = token.data
             console.log("userId", userId);

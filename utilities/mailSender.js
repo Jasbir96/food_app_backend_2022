@@ -1,5 +1,6 @@
 const nodemailer = require("nodemailer");
-const secrets = process.env||require("../secrets");
+const APP_EMAIL = process.env.APP_EMAIL || require("../secrets").APP_EMAIL;
+const APP_PASSWORD = process.env.APP_PASSWORD || require("../secrets").APP_PASSWORD;
 async function mailSender(email, token) {
     // input through which mechanism send your email
     //  -> port, facilitator (technical details) 
@@ -8,11 +9,10 @@ async function mailSender(email, token) {
         host: "smtp.gmail.com",
         secure: true,
         auth: {
-            user: secrets.APP_EMAIL,
-            pass: secrets.APP_PASSWORD
+            user: APP_EMAIL,
+            pass: APP_PASSWORD
         }
     });
-
     let dataObj = {
         from: '"Cult fit clone 👻" <foo@example.com>', // sender address
         to: email, // list of receivers
@@ -26,5 +26,5 @@ async function mailSender(email, token) {
 //     .then(function () {
 //         console.log("mail send successfully")
 //     })
-    // .catch (console.error);
+// .catch (console.error);
 module.exports = mailSender;
