@@ -24,15 +24,10 @@ app.use("/api/v1/review", reviewRouter);
 // app.use("/api/v1/booking", bookingRouter)
 
 
-// update user Profile
-// delete user profile
-
-// locahost:3000 -> express API 
+ 
 app.listen(process.env.PORT || 3000, function () {
     console.log("server started at port 3000");
 })
-
-
 
 
 
