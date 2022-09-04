@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 // npm i cookie parser
 const cookieParser = require("cookie-parser");
+const corse=require("cors");
 // jsonwebtoken
 // token name is -> JWT & mechanism -> cookies
 // repersent -> collection
@@ -11,6 +12,7 @@ const planRouter = require("./routes/planRoutes");
 const reviewRouter = require("./routes/reviewRoutes");
 // to  add post body data to req.body
 app.use(express.json());
+app.use(cors());
 // add cookies to req.cookies
 app.use(cookieParser());
 app.use("/api/v1/auth", authRouter);
