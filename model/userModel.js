@@ -52,7 +52,6 @@ let userSchema = new mongoose.Schema({
     pic: {
         type: String,
         default: "dp.png",
-
     },
     otp: {
         type: String
@@ -62,6 +61,11 @@ let userSchema = new mongoose.Schema({
     },
     address: {
         type: String,
+    },
+    bookings: {
+        //   array of object id 
+        type: [mongoose.Schema.ObjectId],
+        ref: "FoodbookingModel"
     }
 })
 // product Knowledge
