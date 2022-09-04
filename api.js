@@ -23,17 +23,9 @@ app.use("/api/v1/plan", planRouter);
 app.use("/api/v1/review", reviewRouter);
 app.use("/api/v1/booking", bookingRouter)
 
-
-
 app.listen(process.env.PORT || 3000, function () {
     console.log("server started at port 3000");
 })
-
-
-
-
-
-
 
 // create -> deleteUser, updateUser
 // {
