@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 // npm i cookie parser
 const cookieParser = require("cookie-parser");
-const corse=require("cors");
+const cors=require("cors");
 // jsonwebtoken
 // token name is -> JWT & mechanism -> cookies
 // repersent -> collection
