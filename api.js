@@ -22,11 +22,11 @@ const apiLimiter = rateLimit({
 })
 
 // Apply the rate limiting middleware to API calls only
+app.use(cors());
 app.use('/api', apiLimiter);
 // to  add post body data to req.body
 app.use(express.json());
 // res -> header -> set
-app.use(cors());
 // add cookies to req.cookies
 app.use(cookieParser());
 app.use("/api/v1/auth", authRouter);
