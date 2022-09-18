@@ -13,7 +13,7 @@ planRouter.route("/")
     .get(getAllplansController)
     .post(createPlanController)
 
-planRouter.route("/sortByRating",getbestPlans)
+planRouter.get("/sortByRating",getbestPlans)
 planRouter.route("/:planRoutes")
     .get(getPlanController)
     .patch(updatePlanController)
