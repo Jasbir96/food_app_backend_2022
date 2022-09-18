@@ -3,7 +3,7 @@
 const FoodBookingModel = require("../model/bookingModel");
 const UserModel = require("../model/userModel");
 const Razorpay = require("razorpay");
-console.log("Hello");
+console.log("Hello",process.env);
 const KEY_ID = process.env.KEY_ID || require("../secrets").KEY_ID;
 const KEY_SECRET = process.env.KEY_SECRET || require("../secrets").KEY_SECRET
 const razorpay = new Razorpay({
