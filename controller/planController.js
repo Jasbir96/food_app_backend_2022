@@ -39,7 +39,7 @@ async function getPlanController(req, res) {
     try {
         let id = req.params.planRoutes;
         let plan = await FoodplanModel.findById(id)
-        .populate("reviews");;
+            .populate("reviews");;
         res.status(200).json({
             result: "plan found",
             plan: plan
@@ -101,11 +101,33 @@ async function deletePlanController(req, res) {
         })
     }
 }
+async function getbestPlans(req, res) {
+    console.log("hello")
+    try {
+        let plans = await PlanModel.find()
+            .sort("-averageRating").populate({
+                path: 'FoodreviewModel',
+                select: "FoodreviewModel"
+            })
+        plans = plans.slice(0, 3);
+        // console.log(plans);
+        res.status(200).json({
+            plans
+        })
+    } catch (err) {
+        console.log(err);
+        res.status(200).json({
+            message: err.message
+        })
+    }
+
+}
 module.exports = {
     getAllplansController,
     createPlanController,
     updatePlanController,
     deletePlanController,
-    getPlanController
+    getPlanController,
+    getbestPlans
 }
 
