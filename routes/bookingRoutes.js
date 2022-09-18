@@ -9,7 +9,7 @@ bookingRouter
 // ****************************************************
 bookingRouter
     .route("/")
-    .get(getbookings)
+    .get(getBookings)
     // create -> payment done 
     .post(initiateBooking);
 module.exports = bookingRouter;
