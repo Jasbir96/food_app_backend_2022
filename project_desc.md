@@ -129,7 +129,7 @@
           * i`n next popup -> in build command put : CI=false npm run build          
 ## Issues
 * PlanDetails,reviews,Bookings: Frontend 
-* Home Page-> Top3 plans , top 3review: backend 
+* Home Page-> Top3 plans[done] , top 3review:backend 
 * Security : Theory : integrate -> npm packages 
 *  Config data hiding
 *  Presisting Login -> JWT and maybe will be local storage
