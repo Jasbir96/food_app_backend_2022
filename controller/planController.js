@@ -102,16 +102,14 @@ async function deletePlanController(req, res) {
     }
 }
 async function getbestPlans(req, res) {
-    console.log("hello")
     try {
         // let plans = await PlanModel.find()
         //     .sort("-averageRating").populate({
         //         path: 'FoodreviewModel',
         //         select: "FoodreviewModel"
         //     })
-     let plans=   await PlanModel.find();
+        let plans = await FoodplanModel.find();
         plans = plans.slice(0, 3);
-        // console.log(plans);
         res.status(200).json({
             plans
         })
